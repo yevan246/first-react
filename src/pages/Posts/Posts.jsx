@@ -58,10 +58,6 @@ export default function Posts() {
   }, [page, type]);
 
 
-  // if(loading) {
-  //     return <div>Loading...</div>
-  // }
-
   const handleSearch = (e) => {
     e.preventDefault()
 
