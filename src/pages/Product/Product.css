@@ -1,0 +1,11 @@
+.mainInfo {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.imageWrapper {
+    display: flex!important;
+     justify-content: center;
+
+}

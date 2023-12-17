@@ -1,0 +1,21 @@
+.header {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    border-bottom: 1px solid #000;
+}
+
+.header a {
+    text-decoration: none;
+    color: #665fea;
+}
+.header a:hover {
+    text-decoration: none;
+    color: #170bff;
+}
+
+.header a.active {
+    color: #170bff;
+    text-decoration: underline;
+}
