@@ -14,7 +14,6 @@ export default function Posts() {
   const [totalPages, setTotalPages] = useState(0);
   const [type, setType] = useState('show') // show or search
 
-
   const limit = 5;
 
   useEffect(() => {

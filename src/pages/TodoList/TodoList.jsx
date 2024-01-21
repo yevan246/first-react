@@ -1,9 +1,17 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { v4 } from "uuid";
+import { addTodoAction, deleteToDoAction, doneToDoAction } from "../../redux/actions/actions";
 
 export default function TodoList() {
   const [input, setInput] = useState("");
-  const [toDoListArray, setToDoListArray] = useState([]);
+  // const [toDoListArray, setToDoListArray] = useState([]);
+
+  const data = useSelector(state => state.reducer1.todos)
+  const dispatch = useDispatch()
+
+
+  console.log(data);
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -18,26 +26,30 @@ export default function TodoList() {
       done: false,
     };
 
-    setToDoListArray([obj, ...toDoListArray]);
+    dispatch(addTodoAction(obj))
+
+    // setToDoListArray([obj, ...toDoListArray]);
     setInput("");
   };
 
   const handleDelete = (id) => {
-    const filtered = toDoListArray.filter((item) => item.id !== id);
-    setToDoListArray(filtered);
+    dispatch(deleteToDoAction(id))
+    // const filtered = toDoListArray.filter((item) => item.id !== id);
+    // setToDoListArray(filtered);
   };
 
   const handleDone = (id, checked) => {
-    const mapped = toDoListArray.map((item) => {
-      if (item.id === id) {
-        item.done = checked;
-      }
-      return item;
-    });
-    setToDoListArray(mapped);
+    dispatch(doneToDoAction({id, checked}))
+    // const mapped = toDoListArray.map((item) => {
+    //   if (item.id === id) {
+    //     item.done = checked;
+    //   }
+    //   return item;
+    // });
+    // setToDoListArray(mapped);
   };
 
-  console.log("toDoListArray", toDoListArray);
+  // console.log("toDoListArray", toDoListArray);
 
   return (
     <div>
@@ -49,7 +61,7 @@ export default function TodoList() {
         />
         <button type="submit">add</button>
       </form>
-      {toDoListArray.map((item, index) => (
+      {data.map((item, index) => (
         <div key={index}>
           <span style={item.done ? { textDecoration: "line-through" } : {}}>
             {item.text}

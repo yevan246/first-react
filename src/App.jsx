@@ -5,10 +5,10 @@ import Header from "./components/Header/Header";
 import Products from "./pages/Products/Products";
 import Product from "./pages/Product/Product";
 import Posts from "./pages/Posts/Posts";
-import TodoList from "./pages/TodoList/TodoList";
-import TodoList2 from "./pages/TodoList/TodoList2";
+// import TodoList from "./pages/TodoList/TodoList";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import TodoList from "./pages/TodoList/TodoList";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/posts" element={<Posts />} />
-        <Route path="/todolist" element={<TodoList2 />} />
+        <Route path="/todolist" element={<TodoList />} />
       </Routes>
     </BrowserRouter>
   );
