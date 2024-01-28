@@ -1,14 +1,10 @@
-export const addCounterAction = () => {
-    return {
-        type: 'ADD_COUNTER'
-    }
-}
+export const addCounterAction = () => ({
+    type: 'ADD_COUNTER'
+})
 
-export const minusCounterAction = () => {
-    return {
-        type: 'MINUS_COUNTER'
-    }
-}
+export const minusCounterAction = () => ({
+    type: 'MINUS_COUNTER'
+})
 
 export const resetCounterAction = () => {
     return {

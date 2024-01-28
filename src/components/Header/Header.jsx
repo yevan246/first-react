@@ -3,7 +3,7 @@ import './Header.css'
 import { useSelector } from 'react-redux'
 
 export default function Header() {
-  const data = useSelector(state => state.reducer1.todos)
+  const data = useSelector(state => state.todos)
 
   return (
     <div className='header'>
@@ -11,6 +11,7 @@ export default function Header() {
         <NavLink to='/about'>About</NavLink>
         <NavLink to='/products'>Products</NavLink>
         <NavLink to='/posts'>Posts</NavLink>
+        {/* <NavLink to='/todolist'>Todo List</NavLink> */}
         <NavLink to='/todolist'>Todo List({data.length})</NavLink>
 
 

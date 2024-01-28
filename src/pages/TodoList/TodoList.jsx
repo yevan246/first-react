@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { v4 } from "uuid";
-import { addTodoAction, deleteToDoAction, doneToDoAction } from "../../redux/actions/actions";
+// import { addTodoAction, deleteToDoAction, doneToDoAction, fetchQuotesAction } from "../../redux/actions/actions";
+import { addTodo, deleteToDo, toggleTodo } from "../../rtk/todoSlice";
 
 export default function TodoList() {
   const [input, setInput] = useState("");
   // const [toDoListArray, setToDoListArray] = useState([]);
 
-  const data = useSelector(state => state.reducer1.todos)
+  const data = useSelector(state => state.todos)
   const dispatch = useDispatch()
+
+  // useEffect(() => {
+  //   dispatch(fetchQuotesAction())
+  // }, [])
 
 
   console.log(data);
@@ -26,20 +31,20 @@ export default function TodoList() {
       done: false,
     };
 
-    dispatch(addTodoAction(obj))
+    dispatch(addTodo(obj)) // obj is action.payload
 
     // setToDoListArray([obj, ...toDoListArray]);
     setInput("");
   };
 
   const handleDelete = (id) => {
-    dispatch(deleteToDoAction(id))
+    dispatch(deleteToDo(id))
     // const filtered = toDoListArray.filter((item) => item.id !== id);
     // setToDoListArray(filtered);
   };
 
   const handleDone = (id, checked) => {
-    dispatch(doneToDoAction({id, checked}))
+    dispatch(toggleTodo({id, checked}))
     // const mapped = toDoListArray.map((item) => {
     //   if (item.id === id) {
     //     item.done = checked;

@@ -1,7 +1,8 @@
 const initialData = {
     todos: [],
     asd: [],
-    isLoggedIn: false
+    isLoggedIn: false,
+    quotes: []
 }
 
 // action = {
@@ -35,6 +36,12 @@ export const reducer = (data = initialData, action) => {
                     }
                     return todo;
                 })
+            }
+
+        case 'SET_QUOTES': 
+            return {
+                ...data,
+                quotes: action.payload
             }
 
         default: 
